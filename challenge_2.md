@@ -7,3 +7,12 @@ Objects  | Messages
 ------------- | -------------
 User  |
 Customer  |
+```
+As a person,
+So that I can use a good bike,
+I'd like to see if a bike is working
+```
+Objects  | Messages
+------------- | -------------
+User  |
+Customer  |
