@@ -8,7 +8,7 @@ Objects  | Messages
 Person  |
 Bike  |
 Docking Station  |  release_a_bike
-# Nouns: Person
+# Nouns: Person, docking station, bike
 # Verbs: Use, release
 ```
 As a person,
@@ -19,5 +19,5 @@ Objects  | Messages
 ------------- | -------------
 Person  |
 Bike  |  bike_is_working
-# Nouns: Person
+# Nouns: Person, bike
 # Verbs: Use, see, working
