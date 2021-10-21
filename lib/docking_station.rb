@@ -2,11 +2,15 @@ require_relative 'bike'
 
 class DockingStation
 
+    # we can use attr_reader to read the @bike attribute
+    attr_reader :bike
+
     def docking_station
     end
 
     def release_bike
-        Bike.new 
+       fail 'No bikes available' unless @bike
+       @bike
     end
 
     def dock_bike(bike)
@@ -14,11 +18,5 @@ class DockingStation
         # however, use instance variable to store the bike in the state of this instance
         @bike = bike
     end
-    # instead of...
-         #def bike
-             #@bike
-        #end
-    # we can use attr_reader to read the @bike attribute
-    attr_reader :bike
 
 end
