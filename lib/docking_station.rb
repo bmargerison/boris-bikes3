@@ -2,6 +2,8 @@ require_relative 'bike'
 
 class DockingStation
 
+    DEFAULT_CAPACITY = 20
+
     # we can use attr_reader to read the @bike attribute
     attr_reader :bikes
     attr_reader :bike_dock
@@ -29,7 +31,7 @@ class DockingStation
     private
 
     def full?
-      @bike_dock.count >= 20 ? true : false
+      @bike_dock.count >= DEFAULT_CAPACITY ? true : false
     end
 
     def empty?
