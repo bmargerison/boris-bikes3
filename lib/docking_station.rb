@@ -14,16 +14,26 @@ class DockingStation
     end
 
     def release_bike
-       fail 'No bikes available' unless @bike_dock.any?
+       fail 'No bikes available' if empty?
        @bike_dock.pop
     end
 
     def dock_bike(bike)
         # return the bike we dock
         # however, use instance variable to store the bike in the state of this instance
-        fail 'Docking station full' if @bike_dock.count >= 20
+        fail 'Docking station full' if full?
         @bike_dock.push(bike)
         bike
+    end
+
+    private
+
+    def full?
+      @bike_dock.count >= 20 ? true : false
+    end
+
+    def empty?
+      @bike_dock.empty? ? true : false
     end
 
 end
