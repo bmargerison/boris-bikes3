@@ -13,17 +13,14 @@ describe DockingStation do
 
   it 'docks something' do
     bike = Bike.new
-    # Dock the bike at a docking station
     docking_station = DockingStation.new
     expect { docking_station.dock_bike(bike) }.to change{docking_station.bike_dock}.from([]).to([bike])
   end
 
-  # bike method to call on the status of the bike
   it 'returns docked bikes' do
     bike = Bike.new
     docking_station = DockingStation.new
     subject.dock_bike(bike)
-    # return the bike we just docked
     expect(docking_station.dock_bike(bike)).to eq bike 
   end
 
@@ -36,4 +33,13 @@ describe DockingStation do
     expect { subject.dock_bike Bike.new }.to raise_error 'Docking station full'
   end
 
+  it 'allows user to declare capacity' do
+    docking_station = DockingStation.new(30)
+    expect(docking_station.capacity).to eq 30
+  end
+
+  it 'defaults to 20 when no capacity declared' do
+    expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
+  
 end

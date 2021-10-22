@@ -4,11 +4,11 @@ class DockingStation
 
     DEFAULT_CAPACITY = 20
 
-    # we can use attr_reader to read the @bike attribute
-    attr_reader :bikes
     attr_reader :bike_dock
+    attr_accessor :capacity
 
-    def initialize
+    def initialize(capacity=DEFAULT_CAPACITY)
+        @capacity = capacity
         @bike_dock = []
     end
 
@@ -21,8 +21,6 @@ class DockingStation
     end
 
     def dock_bike(bike)
-        # return the bike we dock
-        # however, use instance variable to store the bike in the state of this instance
         fail 'Docking station full' if full?
         @bike_dock.push(bike)
         bike
@@ -31,7 +29,7 @@ class DockingStation
     private
 
     def full?
-      @bike_dock.count >= DEFAULT_CAPACITY ? true : false
+      @bike_dock.count >= @capacity ? true : false
     end
 
     def empty?
@@ -39,4 +37,5 @@ class DockingStation
     end
 
 end
+
 
