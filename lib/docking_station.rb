@@ -16,8 +16,14 @@ class DockingStation
     end
 
     def release_bike
-       fail 'No bikes available' if empty?
-       @bike_dock.pop
+      good_bikes = @bike_dock.select { |bike| bike.broken_bike == false }
+      fail 'No bikes available' if good_bikes.empty? 
+      @bike_dock.each_with_index do |bike, i|
+          if bike.broken_bike == false
+            bike_dock.delete[i]
+            break
+          end
+      end
     end
 
     def dock_bike(bike)
@@ -33,7 +39,7 @@ class DockingStation
     end
 
     def empty?
-      @bike_dock.empty? ? true : false
+      @bike_dock.length == 0 ? true : false
     end
 
 end
